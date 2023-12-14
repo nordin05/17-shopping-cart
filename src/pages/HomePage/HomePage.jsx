@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar"
-import Spinner from "../components/Spinner";
-import styles from "../styles/HomePage.module.css"
+import Navbar from "../../components/Navbar"
+import Spinner from "../../components/Spinner";
+import styles from "./HomePage.module.css"
 
 function HomePage(props) {
   const navigate = useNavigate();

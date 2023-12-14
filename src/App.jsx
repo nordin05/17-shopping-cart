@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useEffect, useState } from "react"
-import HomePage from './pages/HomePage'
+import HomePage from './pages/HomePage/HomePage'
 import ShopPage from './pages/ShopPage'
 import ItemPage from './pages/ItemPage'
 import ErrorPage from './pages/ErrorPage'
-import "./styles/index.css"
+import "./index.css"
 
 function App() {
     const [Products, setProducts] = useState([]);
