@@ -6,6 +6,6 @@ function ItemPage() {
     return (
       <div>item {id} page</div>
     )
-  }
+}
   
-  export default ItemPage
+export default ItemPage

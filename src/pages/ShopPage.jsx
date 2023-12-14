@@ -1,8 +1,12 @@
+import Navbar from "../components/Navbar"
+
 function ShopPage() {
 
     return (
-      <div>shop page</div>
+        <>
+            <Navbar/>
+        </>
     )
-  }
+}
   
-  export default ShopPage
+export default ShopPage

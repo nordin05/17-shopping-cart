@@ -16,17 +16,15 @@ const router = createBrowserRouter([
   {
     path: "shop",
     element: <ShopPage />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "shop/:id",
     element: <ItemPage/>,
-    errorElement: <ErrorPage />,
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+  <RouterProvider router={router} />
   </React.StrictMode>,
 )
