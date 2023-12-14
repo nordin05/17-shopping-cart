@@ -12,7 +12,7 @@ describe("Sortbar component", () => {
     }
 
     beforeEach(() => {
-        render(<Sortbar />);
+        render(<Sortbar setSortBy={setSortBy}/>);
         title = screen.getByText(/title/i);
         price = screen.getByText(/price/i);
         rating = screen.getByText(/rating/i);

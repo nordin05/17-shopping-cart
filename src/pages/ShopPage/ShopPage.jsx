@@ -10,11 +10,38 @@ function ShopPage(props) {
     const [category, setCategory] = useState("");
     const [sortBy, setSortBy] = useState("");
 
+    const filterProducts = () => {
+        const filtered = filterCategory(Products);
+        const sorted = sort(filtered)
+        return sorted
+    }
+    
+    const filterCategory = (array) => {
+        if (category != "") return array.filter( product => product.category == category)
+        else return array
+    }
+
+    const sort = (array) => {
+        if (sortBy == "Title"){
+            const arrayCopy = [...array];
+            return arrayCopy.sort((a, b) => a.title.localeCompare(b.title)) 
+        }
+        else if (sortBy == "Price"){
+            const arrayCopy = [...array];
+            return arrayCopy.sort((a, b) => a.price - b.price)
+        }
+        else if (sortBy == "Rating"){
+            const arrayCopy = [...array];
+            return arrayCopy.sort((a, b) => b.rating.rate - a.rating.rate)
+        }
+
+        else return array
+    }
+
+
     return (
         <>
-            {/* <Navbar/> */}
-            <p>{sortBy}</p>
-            <p>{category}</p>
+            <Navbar/>
             <div className="container-fluid bg-body-secondary">
                 <div className="row mt-3">
                     <div className="col-md-6 offset-sm-4 offset-md-3 offset-lg-2">
@@ -26,7 +53,7 @@ function ShopPage(props) {
                         <Categorybar setCategory={setCategory}/>
                     </div>
                     <div id="items-container" className="col-sm-8 col-md-9 col-lg-10 mt-3 mt-sm-0 p-2">
-                        {Products.map((product) => <Item product={product} key={product.id}/>)}
+                        {filterProducts().map((product) => <Item product={product} key={product.id}/>)}
                     </div>
                 </div>
             </div>

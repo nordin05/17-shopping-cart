@@ -17,12 +17,12 @@ const Categorybar = (props) => {
             activeElement.className = "list-group-item";
             el.className += " active";
             setActiveElement(el);
-            setCategory(el.innerHTML);
+            setCategory(el.innerHTML.toLowerCase());
         }
         else {
             el.className += " active";
             setActiveElement(el);
-            setCategory(el.innerHTML);
+            setCategory(el.innerHTML.toLowerCase());
         }
     }
 
@@ -32,7 +32,7 @@ const Categorybar = (props) => {
             <ul className="list-group">
                 <li className="list-group-item" onClick={handeClick}>Men's Clothing</li>
                 <li className="list-group-item" onClick={handeClick}>Women's Clothing</li>
-                <li className="list-group-item" onClick={handeClick}>Jewelry</li>
+                <li className="list-group-item" onClick={handeClick}>Jewelery</li>
                 <li className="list-group-item" onClick={handeClick}>Electronics</li>
             </ul>
         </div>
