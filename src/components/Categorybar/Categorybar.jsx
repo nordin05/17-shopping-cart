@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "./Categorybar.module.css"
 
-const Categorybar = () => {
+const Categorybar = (props) => {
+    const {setCategory} = props
     const [activeElement, setActiveElement] = useState(null)
 
     const handeClick = (e) => {
@@ -10,15 +11,18 @@ const Categorybar = () => {
         if (activeElement && activeElement == el){ 
             activeElement.className = "list-group-item";
             setActiveElement(null);
+            setCategory("");
         }
         else if (activeElement && activeElement != el){ 
             activeElement.className = "list-group-item";
             el.className += " active";
             setActiveElement(el);
+            setCategory(el.innerHTML);
         }
         else {
             el.className += " active";
             setActiveElement(el);
+            setCategory(el.innerHTML);
         }
     }
 

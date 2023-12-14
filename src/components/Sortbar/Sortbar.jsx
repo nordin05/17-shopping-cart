@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "./Sortbar.module.css"
 
-const Sortbar = () => {
+const Sortbar = (props) => {
+    const {setSortBy} = props;
     const [activeElement, setActiveElement] = useState(null)
 
     const handeClick = (e) => {
@@ -10,15 +11,18 @@ const Sortbar = () => {
         if (activeElement && activeElement == el){ 
             activeElement.className = "list-group-item";
             setActiveElement(null);
+            setSortBy("");
         }
         else if (activeElement && activeElement != el){ 
             activeElement.className = "list-group-item";
             el.className += " active";
             setActiveElement(el);
+            setSortBy(el.innerHTML);
         }
         else {
             el.className += " active";
             setActiveElement(el);
+            setSortBy(el.innerHTML);
         }
     }
 

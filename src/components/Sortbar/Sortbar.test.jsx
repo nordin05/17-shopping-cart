@@ -7,6 +7,10 @@ describe("Sortbar component", () => {
     let price;
     let rating;
 
+    function setSortBy(str) {
+        console.log(str);
+    }
+
     beforeEach(() => {
         render(<Sortbar />);
         title = screen.getByText(/title/i);
