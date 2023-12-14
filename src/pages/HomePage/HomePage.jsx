@@ -46,7 +46,7 @@ function HomePage(props) {
             {Products[0]? <img src={Products[0].image}/>: null}
           </div>
         </div>
-        <div className={"row pb-3 " + styles.links}>
+        <div className={"row pb-3 bg-body-secondary " + styles.links}>
           <ProductLinks/>
         </div>
       </div>

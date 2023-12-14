@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import HomePage from './pages/HomePage/HomePage'
-import ShopPage from './pages/ShopPage'
+import ShopPage from './pages/ShopPage/ShopPage'
 import ItemPage from './pages/ItemPage'
 import ErrorPage from './pages/ErrorPage'
 import "./index.css"
@@ -17,7 +17,7 @@ function App() {
         },
         {
           path: "shop",
-          element: <ShopPage />,
+          element: <ShopPage Products={Products}/>,
         },
         {
           path: "shop/:id",

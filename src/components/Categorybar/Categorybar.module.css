@@ -1,0 +1,12 @@
+.Categories {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.Categories li {
+    user-select: none; 
+}
+
+.Categories li:hover {
+    cursor: pointer;
+}

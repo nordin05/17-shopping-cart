@@ -1,0 +1,35 @@
+import Spinner from "../Spinner";
+import styles from "./Item.module.css"
+
+const Item = (props) => {
+    let { product } = props;
+
+    const trimTitle = (str) => {
+        const max = 5;
+        // const splitStr = str.split(/(\s+)/);
+        const splitStr = str.split(" ");
+        let newStr = "";
+        for (let i = 0; i < max; i++) {
+            if (splitStr[i]){
+                newStr += " " + splitStr[i]
+            }
+        }
+        return newStr;
+    }
+    
+    return (
+        <div className={styles.Item}>
+            <div className={styles.imgContainer}>
+                 <img src={product.image} />
+            </div>
+            <div className={styles.body}>
+                <h5 className={styles.title} >{trimTitle(product.title)}</h5>
+                <p  className={styles.price} >€ {product.price}</p>
+                <p  className={styles.rating}>{product.rating.rate}/5</p>
+                <button className="btn btn-primary btn-sm">Add to Cart</button>
+            </div>
+        </div>
+    );
+  };
+  
+  export default Item;
