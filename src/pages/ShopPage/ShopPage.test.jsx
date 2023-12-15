@@ -60,4 +60,20 @@ describe("Shopping page", () => {
         await user.click(priceBtn);
         expect(product2.compareDocumentPosition(product3)).toBe(2); 
     });
+
+    it("Adds and removes items from cart", async () => {
+        const user = userEvent.setup();
+        const buttons = screen.getAllByText("Add to Cart");
+        const numberOfItems = screen.getByTestId("cart-item-num");
+        expect(numberOfItems.innerHTML).toBe("0"); 
+
+        await user.click(buttons[0]);
+        expect(numberOfItems.innerHTML).toBe("1"); 
+
+        await user.click(buttons[1]);
+        expect(numberOfItems.innerHTML).toBe("2");
+        
+        await user.click(buttons[1]);
+        expect(numberOfItems.innerHTML).toBe("1");
+    });
 });

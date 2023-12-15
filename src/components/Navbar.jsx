@@ -1,7 +1,8 @@
 import { Nav, Navbar as NavbarBs, Button } from "react-bootstrap"
 import { NavLink } from "react-router-dom"
 
-function Navbar() {
+function Navbar(props) {
+    const {itemsInCart} = props;
 
     return (
         <NavbarBs>
@@ -20,7 +21,8 @@ function Navbar() {
                     className="rounded-circle p-0 me-2"
                 >
                     <i className="bi bi-cart-fill" style={{fontSize: "1rem"}}></i>
-                    <div 
+                    <div
+                        data-testid="cart-item-num"
                         className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
                         style={{
                             position: "absolute", 
@@ -32,7 +34,7 @@ function Navbar() {
                             right: "0",
                             transform: "translate(25%,25%)"
                         }}>
-                            1
+                            {itemsInCart.length}
                         </div>
                 </Button>
             </div>
