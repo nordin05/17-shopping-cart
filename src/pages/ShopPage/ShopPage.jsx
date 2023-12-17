@@ -6,11 +6,10 @@ import Item from "../../components/Item/Item";
 import "./ShopPage.css"
 
 function ShopPage(props) {
-    const {Products} = props;
+    const {Products, Cart } = props;
     const [category, setCategory]       = useState("");
     const [sortBy, setSortBy]           = useState("");
-    const [itemsInCart, setItemsInCart] = useState([]);
-
+    
     const filterProducts = () => {
         const filtered = filterCategory(Products);
         const sorted = sort(filtered)
@@ -40,17 +39,18 @@ function ShopPage(props) {
     }
 
     const addItemToCart = (newItem) => {
-        setItemsInCart([...itemsInCart, newItem]);
+        Cart.setItemsInCart([...Cart.itemsInCart, newItem]);
+        console.log(Cart.itemsInCart);
     }
 
     const removeItemFromCart = (removeItem) => {
-        const newArray = itemsInCart.filter((item) => item !== removeItem)
-        setItemsInCart(newArray);
+        const newArray = Cart.itemsInCart.filter((item) => item !== removeItem)
+        Cart.setItemsInCart(newArray);
     }
 
     return (
         <>
-            <Navbar itemsInCart={itemsInCart}/>
+            <Navbar itemsInCart={Cart.itemsInCart}/>
             <div className="container-fluid bg-body-secondary">
                 <div className="row mt-3">
                     <div className="col-md-6 offset-sm-4 offset-md-3 offset-lg-2">

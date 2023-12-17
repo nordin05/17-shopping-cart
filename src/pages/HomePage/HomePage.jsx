@@ -5,7 +5,7 @@ import styles from "./HomePage.module.css"
 
 function HomePage(props) {
   const navigate = useNavigate();
-  const {Products} = props;
+  const {Products, Cart } = props;
 
   const goToShop = () => {
     navigate("/shop");
@@ -34,7 +34,7 @@ function HomePage(props) {
   console.log(Products);
   return (
     <>
-      <Navbar/>
+      <Navbar itemsInCart={Cart.itemsInCart}/>
       <div className={"container-fluid " + styles.pageContainer}>
         <div className={"row " + styles.mainSection}>
           <div className={"p-3 " + styles.content}>

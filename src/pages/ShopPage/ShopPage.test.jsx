@@ -10,6 +10,10 @@ describe("Shopping page", () => {
     const product4 = {"id":12,"title":"WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive","price":114,"description":"Expand your PS4 gaming experience, Play anywhere Fast and easy, setup Sleek design with high capacity, 3-year manufacturer's limited warranty","category":"electronics","image":"https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg","rating":{"rate":4.8,"count":400}}
     const Products = [product1, product2, product3, product4];
 
+    let itemsInCart = []
+    const setItemsInCart = (newArray) => { itemsInCart = newArray; console.log(itemsInCart)}
+    const Cart = {itemsInCart, setItemsInCart}
+
     let mensClothingBtn;
     let womensClothingBtn;
     let titleBtn;
@@ -19,7 +23,7 @@ describe("Shopping page", () => {
     beforeEach(() => {
         render(
             <BrowserRouter>
-              <ShopPage Products={Products}/>
+              <ShopPage Products={Products} Cart={Cart}/>
             </BrowserRouter>
         );
 
