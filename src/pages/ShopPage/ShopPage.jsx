@@ -62,7 +62,7 @@ function ShopPage(props) {
                         <Categorybar setCategory={setCategory}/>
                     </div>
                     <div id="items-container" className="col-sm-8 col-md-9 col-lg-10 mt-3 mt-sm-0 p-2">
-                        {filterProducts().map((product) => <Item product={product} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart} key={product.id}/>)}
+                        {filterProducts().map((product) => <Item product={product} Cart={Cart} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart} key={product.id}/>)}
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@ import Spinner from "../Spinner";
 import styles from "./Item.module.css"
 
 const Item = (props) => {
-    let { product, addItemToCart, removeItemFromCart } = props;
+    let { product, Cart, addItemToCart, removeItemFromCart } = props;
 
     const trimTitle = (str) => {
         const max = 5;
@@ -32,6 +32,11 @@ const Item = (props) => {
             removeItemFromCart(product);
         }
     }
+
+    const ItemButton = () => {
+        if (Cart.itemsInCart.includes(product)) return <button className="btn btn-success btn-sm" onClick={handleClick}>Added to Cart</button>
+        else return <button className="btn btn-primary btn-sm" onClick={handleClick}>Add to Cart</button>
+    }
     
     return (
         <div className={styles.Item}>
@@ -42,7 +47,7 @@ const Item = (props) => {
                 <h5 className={styles.title} >{trimTitle(product.title)}</h5>
                 <p  className={styles.price} >€ {product.price}</p>
                 <p  className={styles.rating}>{product.rating.rate}/5</p>
-                <button className="btn btn-primary btn-sm" onClick={handleClick}>Add to Cart</button>
+                <ItemButton/>
             </div>
         </div>
     );
