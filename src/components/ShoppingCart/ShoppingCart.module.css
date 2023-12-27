@@ -1,0 +1,5 @@
+.cartContainer {
+    position: absolute;
+    background-color: blueviolet;
+    z-index: 3;
+}

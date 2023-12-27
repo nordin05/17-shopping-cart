@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar"
 import Sortbar from "../../components/Sortbar/Sortbar"
 import Categorybar from "../../components/Categorybar/Categorybar"
 import Item from "../../components/Item/Item";
+import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
 import "./ShopPage.css"
 
 function ShopPage(props) {
@@ -40,7 +41,6 @@ function ShopPage(props) {
 
     const addItemToCart = (newItem) => {
         Cart.setItemsInCart([...Cart.itemsInCart, newItem]);
-        console.log(Cart.itemsInCart);
     }
 
     const removeItemFromCart = (removeItem) => {
@@ -52,6 +52,7 @@ function ShopPage(props) {
         <>
             <Navbar itemsInCart={Cart.itemsInCart}/>
             <div className="container-fluid bg-body-secondary">
+                <ShoppingCart Cart={Cart}/>
                 <div className="row mt-3">
                     <div className="col-md-6 offset-sm-4 offset-md-3 offset-lg-2">
                         <Sortbar setSortBy={setSortBy}/>
