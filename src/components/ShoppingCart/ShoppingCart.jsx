@@ -35,9 +35,9 @@ function ShoppingCart(props){
         }
 
         return (
-            <div>
+            <div className={styles.item}>
                 <div className={styles.imgContainer}>
-                    {/* <img src={item.image}/> */}
+                    <img src={item.image}/>
                 </div>
                 <p className={styles.title}>{item.title}</p>
                 <p className={styles.quantity}> x {item.quantity}</p>
@@ -50,9 +50,9 @@ function ShoppingCart(props){
 
     return (
         <div className={styles.cartContainer}>
-            <h3>Shopping Cart</h3>
+            <h3 className="text-center text-primary bg-primary bg-opacity-25 pt-3 pb-3 mb-4 border-bottom">Shopping Cart</h3>
             {Cart.itemsInCart.map((item, index) => <CartItem item={item} i={index} totalPrice={totalPrice} setTotalPrice={setTotalPrice} key={item.id}/>)}
-            <h4>Total <span>€ {totalPrice.toFixed(2)}</span></h4>
+            <h4 className="text-end pb-2 pe-4">Total <span className="">€ {totalPrice.toFixed(2)}</span></h4>
         </div>
     );
 };

@@ -50,9 +50,9 @@ function ShopPage(props) {
 
     return (
         <>
-            <Navbar itemsInCart={Cart.itemsInCart}/>
-            <div className="container-fluid bg-body-secondary">
-                <ShoppingCart Cart={Cart}/>
+            <Navbar Cart={Cart}/>
+            <div className="container-fluid">
+                {Cart.showCart? <ShoppingCart Cart={Cart}/>: null}
                 <div className="row mt-3">
                     <div className="col-md-6 offset-sm-4 offset-md-3 offset-lg-2">
                         <Sortbar setSortBy={setSortBy}/>

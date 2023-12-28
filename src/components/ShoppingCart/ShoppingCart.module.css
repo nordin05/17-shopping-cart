@@ -1,5 +1,72 @@
+p { 
+    margin: 0;
+}
+
 .cartContainer {
     position: absolute;
-    background-color: blueviolet;
+    right: 0;
+    width: 450px;
     z-index: 3;
+
+    border-bottom-left-radius: 0.4rem;
+    border-left: 2px solid var(--bs-dark-border-subtle);
+    border-bottom: 2px solid var(--bs-dark-border-subtle);
+    background-color: white;
+
+    animation: 0.4s dropDown ease-out;
+    transform-origin: top center;
+}
+
+.imgContainer {
+    height: 90px;
+    width: 100px;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+}
+
+.imgContainer img {
+    max-height: 90px;
+    max-width: 100px;
+}
+
+.cartContainer .item {
+    display: grid;
+    grid-template-columns: 120px 120px 30px 30px 30px 1fr;
+    align-items: center;
+    justify-items: center;
+    padding-bottom: 1rem;
+}
+
+.item button {
+    height: 30px;
+    margin-left: 0.4rem;
+    border: none;
+    border-radius: 0.4rem;
+}
+
+.item .subBtn, .item .addBtn {
+    color: white;
+    background-color: hsl(215deg 88% 54%);
+    transition: all 0.3s;
+}
+
+.item .subBtn:hover, .item .addBtn:hover {
+    color: white;
+    background-color: hsl(215deg 89% 42%)
+}
+
+@keyframes dropDown {
+    0% {
+        transform: scaleY(0);
+        animation-timing-function: cubic-bezier(0.79, 0.01, 0.17, 1);
+    };
+    80% {
+        transform: scaleY(1.05);
+        animation-timing-function: cubic-bezier(0.36, 0, 0.17, 1);
+    };
+    100% {
+        transform: scaleY(1);
+    }
 }

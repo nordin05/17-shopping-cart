@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import ShoppingCart from "../../components/ShoppingCart/ShoppingCart";
 import Navbar from "../../components/Navbar"
 import Spinner from "../../components/Spinner";
 import styles from "./HomePage.module.css"
@@ -31,11 +32,11 @@ function HomePage(props) {
     )
   }
 
-  console.log(Products);
   return (
     <>
-      <Navbar itemsInCart={Cart.itemsInCart}/>
+      <Navbar Cart={Cart}/>
       <div className={"container-fluid " + styles.pageContainer}>
+        {Cart.showCart? <ShoppingCart Cart={Cart}/>: null}
         <div className={"row " + styles.mainSection}>
           <div className={"p-3 " + styles.content}>
             <h2 className="text-primary">Webshop</h2>

@@ -9,7 +9,8 @@ import "./index.css"
 function App() {
   const [Products, setProducts]     = useState([]);
   const [itemsInCart, setItemsInCart] = useState([]);
-  const Cart = {itemsInCart, setItemsInCart}
+  const [showCart, setShowCart] = useState(false);
+  const Cart = {itemsInCart, setItemsInCart, showCart, setShowCart};
 
   const router = createBrowserRouter([
       {
