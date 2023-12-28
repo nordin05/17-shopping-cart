@@ -18,11 +18,6 @@ function ShoppingCart(props){
     
     const CartItem = (props) => {
         const {item, i, totalPrice, setTotalPrice} = props;
-        
-        function isDisabled(){
-            if (item.quantity == 0) return true
-            return false;
-        }
 
         const add = () => {
             item.quantity += 1;
@@ -31,7 +26,12 @@ function ShoppingCart(props){
 
         const sub = () => {
             item.quantity -= 1;
-            setTotalPrice(totalPrice - item.price);
+            
+            if (item.quantity == 0){
+                const newArray = Cart.itemsInCart.filter((cartItem) => cartItem !== item);
+                Cart.setItemsInCart(newArray);
+            }
+            else setTotalPrice(totalPrice - item.price);
         }
 
         return (
@@ -41,7 +41,7 @@ function ShoppingCart(props){
                 </div>
                 <p className={styles.title}>{item.title}</p>
                 <p className={styles.quantity}> x {item.quantity}</p>
-                <button className={styles.subBtn} onClick={sub} disabled={isDisabled()}>–</button>
+                <button className={styles.subBtn} onClick={sub}>–</button>
                 <button className={styles.addBtn} onClick={add}>+</button>
                 <p className={styles.price}>€ {(item.price * item.quantity).toFixed(2)}</p>
             </div>
