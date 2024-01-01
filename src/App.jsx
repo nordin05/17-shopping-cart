@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import HomePage from './pages/HomePage/HomePage'
 import ShopPage from './pages/ShopPage/ShopPage'
-import ItemPage from './pages/ItemPage'
+import ItemPage from './pages/ItemPage/ItemPage'
 import ErrorPage from './pages/ErrorPage'
 import "./index.css"
 
@@ -10,7 +10,16 @@ function App() {
   const [Products, setProducts]     = useState([]);
   const [itemsInCart, setItemsInCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
-  const Cart = {itemsInCart, setItemsInCart, showCart, setShowCart};
+  const Cart = {itemsInCart, setItemsInCart, showCart, setShowCart, addItemToCart, removeItemFromCart};
+
+  function addItemToCart(newItem){
+    Cart.setItemsInCart([...Cart.itemsInCart, newItem]);
+  }
+
+  function removeItemFromCart(removeItem){
+    const newArray = Cart.itemsInCart.filter((item) => item !== removeItem)
+    Cart.setItemsInCart(newArray);
+  }
 
   const router = createBrowserRouter([
       {
@@ -24,7 +33,7 @@ function App() {
       },
       {
         path: "shop/:id",
-        element: <ItemPage/>,
+        element: <ItemPage Products={Products} Cart={Cart}/>,
       }
   ]);
 

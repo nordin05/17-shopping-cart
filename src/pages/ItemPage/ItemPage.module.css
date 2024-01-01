@@ -1,0 +1,12 @@
+.price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.price span {
+    color: black;
+    font-size: 1.25rem;
+}

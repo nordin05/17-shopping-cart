@@ -39,11 +39,11 @@ function ShoppingCart(props){
                 <div className={styles.imgContainer}>
                     <img src={item.image}/>
                 </div>
-                <p className={styles.title}>{item.title}</p>
-                <p className={styles.quantity}> x {item.quantity}</p>
+                <p>{item.title}</p>
+                <p className="text-secondary"> x {item.quantity}</p>
                 <button className={styles.subBtn} onClick={sub}>–</button>
                 <button className={styles.addBtn} onClick={add}>+</button>
-                <p className={styles.price}>€ {(item.price * item.quantity).toFixed(2)}</p>
+                <p className="text-primary">€ {(item.price * item.quantity).toFixed(2)}</p>
             </div>
         )
     }
@@ -52,7 +52,7 @@ function ShoppingCart(props){
         <div className={styles.cartContainer}>
             <h3 className="text-center text-primary bg-primary bg-opacity-25 pt-3 pb-3 mb-4 border-bottom">Shopping Cart</h3>
             {Cart.itemsInCart.map((item, index) => <CartItem item={item} i={index} totalPrice={totalPrice} setTotalPrice={setTotalPrice} key={item.id}/>)}
-            <h4 className="text-end pb-2 pe-4">Total <span className="">€ {totalPrice.toFixed(2)}</span></h4>
+            <h4 className="text-end pb-2 pe-4">Total <span className="text-primary">€ {totalPrice.toFixed(2)}</span></h4>
         </div>
     );
 };

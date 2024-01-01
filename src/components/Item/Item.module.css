@@ -12,10 +12,11 @@
     height: 250px;
     width: 300px;
     overflow: hidden;
+    cursor: pointer;
 
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 }
 
 .Item img {

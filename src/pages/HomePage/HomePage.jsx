@@ -12,11 +12,10 @@ function HomePage(props) {
     navigate("/shop");
   }
 
-
   function ProductLinks(){
     if (Products[0]) return (
-      Products.slice(1, 4).map((product) => (
-        <div className={"mt-3 " + styles.productLink} key={product.id}>
+      Products.slice(0, 3).map((product) => (
+        <div className={"mt-3 " + styles.productLink} key={product.id} onClick={() => navigate(`/shop/${product.id}`)}>
           <img src={product.image}/>
           <h4 className="text-secondary">{product.title}</h4>
         </div>
@@ -41,7 +40,7 @@ function HomePage(props) {
           <div className={"p-3 " + styles.content}>
             <h2 className="text-primary">Webshop</h2>
             <p className="text-secondary">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto nisi reprehenderit cupiditate accusamus aut id?</p>
-            <button className="btn btn-outline-primary" onClick={goToShop}>Shop now</button>
+            <button className="btn btn-outline-primary mt-2" onClick={goToShop}>Shop now</button>
           </div>
           <div className={styles.imgContainer}>
             {Products[0]? <img src={Products[0].image}/>: null}

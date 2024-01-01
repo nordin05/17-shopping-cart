@@ -39,15 +39,6 @@ function ShopPage(props) {
         else return array
     }
 
-    const addItemToCart = (newItem) => {
-        Cart.setItemsInCart([...Cart.itemsInCart, newItem]);
-    }
-
-    const removeItemFromCart = (removeItem) => {
-        const newArray = Cart.itemsInCart.filter((item) => item !== removeItem)
-        Cart.setItemsInCart(newArray);
-    }
-
     return (
         <>
             <Navbar Cart={Cart}/>
@@ -63,7 +54,7 @@ function ShopPage(props) {
                         <Categorybar setCategory={setCategory}/>
                     </div>
                     <div id="items-container" className="col-sm-8 col-md-9 col-lg-10 mt-3 mt-sm-0 p-2">
-                        {filterProducts().map((product) => <Item product={product} Cart={Cart} addItemToCart={addItemToCart} removeItemFromCart={removeItemFromCart} key={product.id}/>)}
+                        {filterProducts().map((product) => <Item product={product} Cart={Cart} key={product.id}/>)}
                     </div>
                 </div>
             </div>
